@@ -789,6 +789,10 @@ lowerStaff= \relative c, { \clef "bass" \key d \major
     
 
 }
+
+tenortext = \lyrics {
+  Can it be Chris -- tine?
+}
 sopranotext = \lyrics {
   Think of me
   Think of me fond -- ly
@@ -810,6 +814,19 @@ sopranotext = \lyrics {
 
   Think of al the things we've shared and seen;
   don't think a -- bout the things which might have been.
+
+  Think of me,
+  think of me wa -- king, si -- lent and re -- signed.
+  I -- ma -- gine me, try -- ing too hard to put you from my mind.
+  Re -- call those days, look back on all those times,
+  think of the things we'll ne -- ver do.
+  There will ne -- ver be a day when I won't think of you.
+
+  Flo -- wers fade, the fruits of som -- mer fade.
+  They hav their sea -- son, so do we.
+  But please pro -- mise me that some -- times you will think
+
+  ah ah ah of me!
 }
 
 
