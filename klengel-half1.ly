@@ -9,6 +9,116 @@ global = {
   % Make fingering readable
   \override Fingering.font-size=#-3
 }
+#(define (pitch-equals? p1 p2)
+      (and
+            (= (ly:pitch-alteration p1) (ly:pitch-alteration p2))
+                (= (ly:pitch-notename p1) (ly:pitch-notename p2))))
+wholeMajorTwo =
+#(define-music-function
+   (parser location pitch)
+   (ly:pitch?)
+   #{
+    \transpose c $pitch {
+      \relative { 
+        c1
+        d
+        e
+        f
+        g
+        a
+        b
+        c
+        d
+        e
+        f
+        g
+        a
+        b
+        c
+        b
+        a
+        g
+        f
+        e
+        d
+        c
+        b
+        a
+        g
+        f
+        e
+        d
+        c
+        }
+      }
+   #})
+
+wholeMinorTwo =
+#(define-music-function
+   (parser location pitch)
+   (ly:pitch?)
+   #{
+     \transpose a $pitch {
+       \relative {
+         a1
+         b
+         c
+         d
+         e
+         fis
+         gis
+         a
+         b
+         c
+         d
+         e
+         fis
+         gis
+         a
+         g
+         f
+         e
+         d
+         c
+         b
+         a
+         g
+         f
+         e
+         d
+         c
+         b
+         a
+       }
+    }
+  #})
+
+fingering = \with {
+  alignAboveContext = "staff"
+  \override VerticalAxisGroup.
+    nonstaff-relatedstaff-spacing.padding = #0
+  \override VerticalAxisGroup.
+    nonstaff-relatedstaff-spacing.basic-distance = #0
+  \override VerticalAxisGroup.
+    nonstaff-unrelatedstaff-spacing.padding = #0
+  \override VerticalAxisGroup.
+    nonstaff-unrelatedstaff-spacing.basic-distance = #0
+  \override LyricText.font-size = #-1
+}
+
+alternateFingering = \with {
+  \override VerticalAxisGroup.
+    nonstaff-relatedstaff-spacing.padding = #0
+  \override VerticalAxisGroup.
+    nonstaff-relatedstaff-spacing.basic-distance = #0
+  \override VerticalAxisGroup.
+    nonstaff-unrelatedstaff-spacing.padding = #0
+  \override VerticalAxisGroup.
+    nonstaff-unrelatedstaff-spacing.basic-distance = #0
+  \override LyricText.font-size = #-1
+}
+
+
 \bookpart {
   \header {
     title = "Technische studien fur violoncello heft 1"
@@ -16,36 +126,76 @@ global = {
     subtitle = "Scales in two octaves"
   }
   \score{
-    \new Staff \relative c, {
-      \global
-      \clef bass
-      \key c \major
-      c1^0^GB d^1 e^3 f^4
-      g^0 a^1 b^3 c^4 
-      d^0 e^1 f^2 g^4
-      a^0 b^1 c^2 b^1 a^0
-      g^4 f^2 e^1 d^0
-      c^4 b^3 a^1 g^0
-      f^4 e^3 d^1 c^0 \bar "||"
-    }
+    <<
+      \new Staff = "staff" \relative c, {
+        \new Voice = "melody" {
+          \global
+          \clef bass
+          \key c \major
+            \wholeMajorTwo c, \bar "|."
+          %{c1^0^GB d^1 e^3 f^4
+          g^0 a^1 b^3 c^4 
+          d^0 e^1 f^2 g^4
+          a^0 b^1 c^2 b^1 a^0
+          g^4 f^2 e^1 d^0
+          c^4 b^3 a^1 g^0
+          f^4 e^3 d^1 c^0 \bar "||"
+          %}
+        }
+      }
+      \new Lyrics \fingering {
+        \lyricsto "melody" {
+          "0" "1" "3" "4"
+          "0" "1" "3" "4"
+          "0" "1" "2" "4"
+          "0" "1" "2" "1" "0"
+          "4" "2" "1" "0"
+          "4" "3" "1" "0"
+          "4" "3" "1" "0"
+        }
+      }
+    >>
     \header{
       piece = "C major"
     }
   }
   \score{
-    \new Staff \relative c, {
-      \global
-      \clef bass
-      \key a \minor
-      a'^1 b^3 c^4
-      d^0 e^1 fis^2 gis^4
-      a^0 b^1 c^2 d_\parenthesize_1^4
-      e^1_\parenthesize_3 fis^2_\parenthesize_1 gis^4_\parenthesize_2
-      a^0_\parenthesize_3 g^4_\parenthesize_2 f^2_\parenthesize_1 e^1_\parenthesize_3
-      d^4_\parenthesize_1 c^2 b^1 a^0
-      g^4 f^2 e^1 d^0
-      c^4 b^3 a^1 \bar "||"
-    }
+    <<
+      \new Staff = "staff" \relative c, {
+        \new Voice = "melody" {
+          \global
+          \clef bass
+          \key a \minor \wholeMinorTwo a, \bar "|."
+          %{ a'^1 b^3 c^4
+          d^0 e^1 fis^2 gis^4
+          a^0 b^1 c^2 d_\parenthesize_1^4
+          e^1_\parenthesize_3 fis^2_\parenthesize_1 gis^4_\parenthesize_2
+          a^0_\parenthesize_3 g^4_\parenthesize_2 f^2_\parenthesize_1 e^1_\parenthesize_3
+          d^4_\parenthesize_1 c^2 b^1 a^0
+          g^4 f^2 e^1 d^0
+          c^4 b^3 a^1 \bar "||"
+          %}
+        }
+      }
+      \new Lyrics \fingering {
+        \lyricsto "melody" {
+          "1" "3" "4"
+          "0" "1" "2" "4"
+          "0" "1" "2" "4"
+          "1" "2" "4" o
+          "4" "2" "1"
+          "4" "2" "1" "0"
+          "4" "2" "1" "0"
+          "4" "3" "1"
+        }
+      }
+      \new Lyrics \alternateFingering {
+        \lyricsto "melody" {
+          \repeat unfold 10 { \skip 1 }
+          "(1)" "(3)" "(1)" "(2)" "(3)" "(2)" "(1)" "(3)" "(1)"
+        }
+      }
+    >>
     \header{
       piece = "A minor"
     }
