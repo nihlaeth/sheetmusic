@@ -69,6 +69,27 @@ voiceStaff= \relative c' { \tempo 4=100 \time 4/4 \key d \major
     bes2 g |
     f-"poco rit." c |
     d r \bar "||"
+
+    %43
+    g8 as g2. |
+    f8 f f bes4. f4 |
+    es4. es8 es4 es'4 |
+    bes2. r8 as |
+    g as g2. |
+    f8 f f bes4. f4 |
+    es4. es8 es4 es' |
+    bes2. r8 as8 |
+    g as g4. as8 g as |
+    g as g4. b8 d f |
+    f4 es c g |
+    f2 es4 f |
+    g8 as g2 c4 |
+    bes2 g |
+    f g |
+    as d \bar "||"
+
+    %59
+    es1 |
   }
 
 
@@ -155,7 +176,26 @@ fluteone = \relative c'' {
   c |
 
   %43
-  a'8-"a tempo"\p
+  a'8-"a tempo"\p( bes a2. |
+  g1 |
+  f |
+  g2~ g8) e( f g |
+  a bes a2. |
+  g1 |
+  f |
+  g) |
+  a8\mp( bes a4. bes8 a bes |
+  a bes a2.~ |
+  a1 |
+  g) |
+  a,2.\p d4 |
+  c1 |
+  bes2\mp( c |
+  d e\<) \bar "||"
+
+  %59
+  a8\f( bes a2.) |
+
 
 
 
@@ -215,7 +255,27 @@ flutetwo = \relative c'' {
   g |
 
   %43
-  f'1-"a tempo"\p |
+  f'1-"a tempo"\p ( |
+  c |
+  bes |
+  c2~ c8) c( d e |
+  f g f2. |
+  c1 |
+  bes |
+  c) |
+  r1 |
+  r2 r8 cis\mp\<( e g |
+  g4\mf f d a |
+  b1\>) |
+  f2.\p bes4 |
+  a1 |
+  g2\mp( a |
+  g bes\<) \bar "||"
+
+  %59
+  f2~\f f8 f'4( c8) |
+
+
 
 
 
@@ -228,7 +288,7 @@ soloviolin = \relative c' {
   r1 |
   r |
   \repeat unfold 2 {
-    fis8\f( g fis2.) |
+    fis8\mf( g fis2.) |
     e8 e e a4.( e4) |
     d4. d8 d4 d'( |
   }
@@ -274,12 +334,31 @@ soloviolin = \relative c' {
   es2 bes |
   g r4 g |
   a8 bes a2 d4\< |
-  c2\ff a |
+  c2\f a |
   g-"poco rit."\> d |
   e r \bar "||"
 
   %43
-  a8-"a tempo"\f
+  a8-"a tempo"\mf bes a2. |
+  g8 g g c4. g4 |
+  f4. f8 f4 f' |
+  c2. r8 bes |
+  a8 bes a2. |
+  g8 g g c4. g4 |
+  f4. f8 f4 f' |
+  c2. r8 bes |
+  a8 bes a4. bes8 a bes |
+  a bes a4. cis8 e g |
+  g4 f d a |
+  g2 f4 g |
+  a8 bes a2 d4 |
+  c2 a |
+  g\< a |
+  bes e \bar "||"
+
+  %59
+  f1\fff |
+
 
 
 }
@@ -327,6 +406,25 @@ violinone = \relative c'' {
   
   %43
   r8-"a tempo"\p c:16 a':16 f:16 c':16 f,:16 a:16 c,:16 |
+  r8 c:16 g':16 e:16 c':16 e,:16 g:16 c,:16 |
+  r f,:16 d':16 bes:16 f':16 bes,:16 d:16 f:16 |
+  r c:16 g':16 e:16 c':16 e,:16 g:16 c,:16 |
+  r f,:16 a:16 c:16 f:16 c:16 f:16 a:16 |
+  r c,:16 g':16 e:16 c':16 e,:16 g:16 c,:16 |
+  r f,:16 d':16 bes:16 f':16 d:16 bes:16 f:16 |
+  r c\<( e g) c( d e g) |
+  a4.:32\mf g:32 f4:32 |
+  e4.:32 f:32 e4:32 |
+  e:32 f2.:32 |
+  g4( f d\> g,) |
+  a2.\mp a4 |
+  a f8( g a g f e) |
+  d e d g a c,\< e a |
+  bes d, f bes g8( g4.) \bar "||"
+
+  %59
+  f'8:16\ff c:16 c:16 f:16 f:16 c:16 c:16 f:16 |
+
 
 
 
@@ -375,7 +473,26 @@ violintwo = \relative c' {
   r4\mp\> c,4:32 g':32 c:32 |
 
   %43
-  c,1:32-"a tempo"\p
+  c,1:32-"a tempo"\p |
+  c:32 |
+  d:32 |
+  e2.:32 c4:32 |
+  c1:32 |
+  e:32 |
+  d:32 |
+  r8 c\<( e g) c( d e g) |
+  f4.:32\mf e:32 d4:32 |
+  cis1:32 |
+  cis4:32 d2.:32 |
+  g4( f d2) |
+  f,2.\mp f4 |
+  f4 d8( e f e d c) |
+  bes bes d g a c,\< e a |
+  bes d, f bes e,8( e4.) \bar "||"
+
+  %59
+  < f a>2:32\ff < f a>:32 |
+
 
 
 
@@ -430,6 +547,24 @@ viola = \relative c' {
 
   %43
   f1:32-"a tempo"\p |
+  f:32 |
+  f:32 |
+  f:32 |
+  f:32 |
+  e':32 |
+  d:32 |
+  e:32\< |
+  a,8\mf( bes a4.) bes8( a bes) |
+  a( bes a4.) cis8 e g |
+  g4( f) d( a) |
+  b1 |
+  c2.\mp c4 |
+  c4 f8( g a g f e) |
+  d d, g bes c e,\< a c |
+  d f, bes d bes bes4. \bar "||"
+
+  %59
+  c'2:32\ff c:32 |
 
 
 
@@ -482,6 +617,24 @@ cello = \relative c, {
 
   %43
   r1-"a tempo"\p |
+  r |
+  r |
+  r |
+  r |
+  r |
+  r |
+  g1:32\< |
+  d'2.\mf d4 |
+  d2~ d8 cis' e g |
+  g4( e) d( a) |
+  d,1 |
+  c2 c |
+  d4 d8( e f e d c) |
+  d2 e\< |
+  f c8 c4. \bar "||"
+
+  %59
+  f,2~\ff f8 f4( c8) |
 
 
 
@@ -527,11 +680,29 @@ contrabass = \relative c, {
   bes2.\> es,4 |
   c2\mp r |
   d r |
-  r1 |
+  r1-"poco rit." |
   c-"arco" \bar "||"
 
   %43
-  r1 |
+  r1-"a tempo" |
+  r |
+  r |
+  r |
+  r |
+  r |
+  r |
+  r |
+  d4.-"pizz."\mp d'8~ d2 |
+  d4. d8~ d2 |
+  d,1-"arco" |
+  g |
+  c,2-"pizz." c |
+  d1 |
+  g2-"arco" a\< |
+  bes c8 c4. \bar "||"
+
+  %59
+  f,,2~\ff f8 f'4( c8) |
 
 }
 
@@ -677,8 +848,48 @@ upperStaff= \relative c' { \key d \major
       { \voiceTwo < as d>1 }
       \new Voice { \voiceOne r4 bes f' bes }
     >> \oneVoice \bar "||"
-  }
 
+    %43
+    g'8\mp( as g2.) |
+    f8 f f bes4. f4 |
+    es4. es8 es4 es' |
+    bes2. r8 as8 |
+    g( as g2.) |
+    f8 f f bes4. f4 |
+    es4. es8 es4 es' |
+    bes2. r8\< as,8 |
+    <<
+      { \voiceTwo < c, es>2\mf < c es> }
+      \new Voice { \voiceOne g'8 as g4. as8 g as }
+    >> \oneVoice |
+    <<
+      { \voiceTwo < b, d>2 d4 < g b> }
+      \new Voice { \voiceOne g8 as g4. b8 d f }
+    >> \oneVoice |
+    < g, c f>4 < g c es> < es g c> < bes es g> |
+    < a c f>2 < a c es>4 < a c f> |
+    <<
+      { \voiceTwo es'( }
+      \new Voice { \voiceOne g8 as }
+    >> \oneVoice < es g>2) < es g c>4 |
+    <<
+      { \voiceOne bes'2 g }
+      \new Voice { \voiceTwo < es g>4 < c es>8(< d f> < es g> < d f> < c es>4) }
+    >> \oneVoice |
+    <<
+      { \voiceOne f2 g | as d\< }
+      \new Voice {
+        \voiceTwo f,,8( as c f g, bes d g |
+        as, c es as d, f as bes)
+      }
+    >> \oneVoice \bar "||"
+
+    %59
+    <<
+      { \voiceTwo < bes es>4\f < bes es>2. }
+      \new Voice { \voiceOne g'8 as g2. }
+    >> \oneVoice |
+  }
 
 
 
@@ -785,7 +996,35 @@ lowerStaff= \relative c, { \clef "bass" \key d \major
       \new Voice { \voiceOne r4 c' as' g8 as }
     >> \oneVoice |
     < bes, f'>1 \bar "||"
+    
+    %43
+    \clef treble
+    r8\mp bes'( g' es bes' es, g bes,) |
+    r bes( f' d bes' d, f bes,) |
+    r as( es' c as' c, es as,) |
+    r bes( f' d bes' d, f bes,) |
+    r bes( g' es bes' es, g bes,) |
+    r bes( g' d bes' d, g bes,) |
+    r as( es' c as' c, es as,) |
+    r bes( g' d bes'\< d, g4) |
+
+    \clef bass
+    c,,2.\mf c4 |
+    c1 |
+    c |
+    f,4 f'2. |
+    bes,1 |
+    c |
+    f,2 g |
+    as bes\< \bar "||"
+
+    %59
+    <<
+      { \voiceTwo < es, es'>1\f }
+      \new Voice { \voiceOne r4 < es' g bes> < g bes es> < es g bes> }
+    >> \oneVoice |
   }
+
     
 
 }
