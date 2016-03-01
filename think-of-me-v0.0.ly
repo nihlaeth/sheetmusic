@@ -90,10 +90,29 @@ voiceStaff= \relative c' { \tempo 4=100 \time 4/4 \key d \major
 
     %59
     es1 |
+    \repeat unfold 15 r1 |
+
   }
+    \key es \major
 
+    %75
+    g8 as g4. as8 g as |
+    g as g4. b8 d f |
+    f4 es c g |
+    f2 es4 f |
+    g8 as g2 c4 |
+    bes2 g |
+    f g |
+    as r4.
 
-
+    %82
+    f16( g |
+    as8 f c' as g'4) r8 as,16( bes |
+    c8 as es' c f4) r16 (g,16 as bes |
+    c bes c d es c d es f8 bes,4) bes8( |
+    bes'2.~ bes8\fermata) es, |
+    es1\fermata |
+    r1 \bar "|."
 
 }
 
