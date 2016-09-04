@@ -25,29 +25,51 @@ mainTwo= \relative c {
 voiceStaff= \relative c' {
   \tempo 4=84 \time 4/4 \key c \minor \clef "treble_8"
   \repeat unfold 4 { r1 | }
-  \mainOne
-  \mainOne
-  \mainTwo
-  \mainOne
-
-  % Refrain
-  r4 f,8 f as as c c |
-  d bes r8 bes d d bes bes |
-  \repeat unfold 3 {
-    f4 r8 f as as c c |
-    d bes bes bes d d bes bes |
-  }
   \repeat unfold 2 {
-    r2 as4. f8~ |
-    f2 r |
+    \repeat unfold 4 { \mainOne }
+
+    % Refrain
+    r4 f,8 f as as c c |
+    d bes r8 bes d d bes bes |
+    \repeat unfold 3 {
+      f4 r8 f as as c c |
+      d bes bes bes d d bes bes |
+    }
+    \repeat unfold 2 {
+      r2 as4. f8~ |
+      f2 r |
+    }
   }
 
 
 }
 
-cello= \relative c' {
+cello= \relative c, {
   \tempo 4=84 \time 4/4 \key c \minor \clef bass
   \repeat unfold 32 { r1 | }
+
+  \repeat unfold 3 {
+    f2. g4 |
+    as2 < c es> |
+    < es g >1 |
+    < d bes'> |
+  }
+  f,2. g4 |
+  as2 < bes d>4 < c es > |
+  < es g>2 g |
+  f8 r2.. |
+
+  % Refrain
+  \repeat unfold 3 {
+    f,1 |
+    bes |
+  }
+  f |
+  r |
+  f'2.. d8~ |
+  d1 |
+  c2.. f,8 |
+  bes1 |
 }
 
 upperStaff= \relative c'' {
@@ -56,21 +78,23 @@ upperStaff= \relative c'' {
   r2.. as'8~ |
   as c g as f g as bes~ |
   bes1 |
-  \repeat unfold 16 { r1 | }
-
-  % Refrain
-  < f as>4 as c as |
-  < bes d > < bes d > r8 f < bes d > f |
   \repeat unfold 2 {
-    f4 < as c>8 f r f < as c > f |
-    < bes d >4 < bes d> r8 f < bes d >4 |
+    \repeat unfold 16 { r1 | }
+
+    % Refrain
+    < f as>4 as c as |
+    < bes d > < bes d > r8 f < bes d > f |
+    \repeat unfold 2 {
+      f4 < as c>8 f r f < as c > f |
+      < bes d >4 < bes d> r8 f < bes d >4 |
+    }
+    f8 f < as c> f r f < as c > f |
+    f1 |
+    as8 < as bes> g < g as> f < f g > es < d f>~ |
+    < d f>2. r8 as'~ |
+    as < as c> g < g as> f < f g> < es as > < d f bes>~ |
+    < d f bes>1 |
   }
-  f8 f < as c> f r f < as c > f |
-  f1 |
-  as8 < as bes> g < g as> f < f g > es < d f>~ |
-  < d f>2. r8 as'~ |
-  as < as c> g < g as> f < f g> < es as > < d f bes>~ |
-  < d f bes>1 |
 
 
 }
@@ -94,22 +118,24 @@ loweresg= \relative c {
 lowerStaff= \relative c' {
   \tempo 4=84 \time 4/4 \key c \minor \clef bass
   \repeat unfold 2 { \lowerfas \lowerbesd }
-  \repeat unfold 3 {
+  \repeat unfold 2 {
+    \repeat unfold 3 {
+      \lowerfas
+      \lowerasc
+      \loweresg
+      \lowerbesd
+    }
     \lowerfas
     \lowerasc
     \loweresg
-    \lowerbesd
-  }
-  \lowerfas
-  \lowerasc
-  \loweresg
-  bes1 |
+    bes1 |
 
-  % Refrain
-  \repeat unfold 3 { \lowerfas \lowerbesd }
-  \lowerfas
-  < d f >1 |
-  \repeat unfold 2 { \lowerfas \lowerbesd }
+    % Refrain
+    \repeat unfold 3 { \lowerfas \lowerbesd }
+    \lowerfas
+    < d f >1 |
+    \repeat unfold 2 { \lowerfas \lowerbesd }
+  }
 
 }
 
@@ -129,7 +155,7 @@ lowerStaff= \relative c' {
           Bright and ear -- ly for their dai -- ly ra -- ces 
           Go -- ing no -- where, go -- ing no -- where 
 
-          Their tears are fil -- ling up their glas -- ses 
+          \skip 1 Their tears are fil -- ling up their glas -- ses 
           No ex -- pres -- sion, no ex -- pres -- sion 
           Hide my head, I wan -- na drown my sor -- row 
           No to -- mor -- row, no to -- mor -- row 
@@ -143,24 +169,24 @@ lowerStaff= \relative c' {
           When peo -- ple run in cir -- cles
           It's a ve -- ry, ve -- ry mad world, mad world
 
-          Children waiting for the day they feel good
-          Happy Birthday, Happy Birthday
-          And I feel the way that every child should
-          Sit and listen, sit and listen
+          Chil -- dren wai -- ting for the day they feel good
+          Hap -- py Birth -- day, Hap -- py Birth -- day
+          And I feel the way that e -- very child should
+          Sit and li -- sten, sit and li -- sten
 
-          Went to school and I was very nervous
+          Went to school and I was ve -- ry ner -- vous
           No one knew me, no one knew me
-          Hello teacher tell me what's my lesson
+          Hel -- lo tea -- cher tell me what's my les -- son
           Look right through me, look right through me
 
-          And I find it kinda funny
-          I find it kinda sad
-          The dreams in which I'm dying
-          Are the best I've ever had
-          I find it hard to tell you
+          And I find it kin -- da fun -- ny
+          I find it kin -- da sad
+          The dreams in which I'm dy -- ing
+          Are the best I've e -- ver had
+          I find it hard to tell you \skip 1
           I find it hard to take
-          When people run in circles
-          It's a very, very mad world, mad world
+          When peo -- ple run in cir -- cles
+          It's a ve -- ry, ve -- ry mad world, mad world
 
           Enlarging your world
           Mad world 
