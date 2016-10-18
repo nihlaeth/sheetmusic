@@ -15,10 +15,12 @@ voiceStaff= \relative c' {
   \repeat unfold 4 r1
 
   %5
-  b2 cis |
-  d cis |
-  a2. r8 e16 cis'~ |
-  cis2. r4 |
+  \repeat unfold 2 {
+    b2 cis |
+    d cis |
+    a2. r8 e16 cis'~ |
+    cis2. r4 |
+  }
 
 
 }
@@ -45,10 +47,12 @@ upperStaff= \relative c' {
   \upperC
 
   %5
-  \upperA
-  \upperA
-  \upperB
-  \upperC
+  \repeat unfold 2 {
+    \upperA
+    \upperA
+    \upperB
+    \upperC
+  }
 
 }
 
@@ -61,10 +65,12 @@ lowerStaff= \relative c {
   << { \voiceTwo fis } \new Voice { \voiceOne r16 cis'8 cis16~ cis2. } \oneVoice >> |
 
   %5
-  b1 |
-  b |
-  a |
-  << { \voiceTwo fis } \new Voice { \voiceOne r16 cis'8 cis16~ cis2. } \oneVoice >> |
+  \repeat unfold 2 {
+    b1 |
+    b |
+    a |
+    << { \voiceTwo fis } \new Voice { \voiceOne r16 cis'8 cis16~ cis2. } \oneVoice >> |
+  }
 
 }
 
@@ -83,7 +89,8 @@ myChords= \chordmode {
         \set Staff.midiInstrument = "choir aahs"
         \voiceStaff
         \addlyrics {
-          Play -- ground school -- bell rings, again
+          Play -- ground school -- bell rings, a -- gain
+          Rain -- clouds come to play, a -- gain
 
         }
       >>
