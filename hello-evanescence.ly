@@ -1,6 +1,6 @@
 \include "articulate.ly"
 \include "predefined-guitar-fretboards.ly"
-\version "2.18.2"
+\version "2.19.49"
 
 \header {
   title = "Hello"
@@ -16,11 +16,21 @@ voiceStaff= \relative c' {
 
   %5
   \repeat unfold 2 {
-    b2 cis |
-    d cis |
-    a2. r8 e16 cis'~ |
-    cis2. r4 |
+    b2\mp\( cis\) |
+    \breathe d\( cis |
+    a2.\) r8 \breathe e16\( cis'~ |
+    cis2.\) r4 |
   }
+
+  \barNumberCheck #13
+  \breathe b4.\mf\( cis8~ cis g'4 g8~ |
+  g fis4\) \breathe e8\(~ e fis4 e8~ |
+  e d4.~ d4\) r8 \breathe cis16\( d~ |
+  d4\) r8 \breathe cis8\(~ cis d4 b8~ |
+  b4\) r8 \breathe cis8\(~ cis d4 g,8~ |
+  g b4 cis8~ cis4 d8 d~ |
+  d cis~ cis2\) r8 \breathe b16\( cis~ |
+  cis1\) |
 
 
 }
@@ -41,7 +51,7 @@ upperC= \relative c' {
 
 upperStaff= \relative c' {
   \tempo 4=72 \time 4/4 \key b \minor
-  r16\mp\sustainOn fis, d' fis, d'8 cis16 fis, cis'8 a a cis |
+  r16 fis, d' fis, d'8 cis16 fis, cis'8 a a cis |
   \upperA
   \upperB
   \upperC
@@ -54,24 +64,78 @@ upperStaff= \relative c' {
     \upperC
   }
 
+  \barNumberCheck #13
+  b4 b cis d |
+  cis ais b cis |
+  d16 fis, b fis b cis d fis, cis' fis, b fis fis' b, fis b |
+  d16 fis, b fis b cis d fis, cis' a fis a fis'8 fis,16 a |
+  b4 b cis d |
+  g, b cis d |
+  cis2 b4 fis |
+  < fis ais cis>2 fis''' |
+
 }
 
 
 lowerStaff= \relative c {
   \tempo 4=72 \time 4/4 \key b \minor \clef bass
-  b1\mp\sustainOn |
+  b1|
   b |
   a |
-  << { \voiceTwo fis } \new Voice { \voiceOne r16 cis'8 cis16~ cis2. } \oneVoice >> |
+  << { \voiceTwo fis } \new Voice { \voiceOne r16-\tag midi \mf cis'8 cis16~ cis2. } >> \oneVoice |
 
   %5
   \repeat unfold 2 {
     b1 |
     b |
     a |
-    << { \voiceTwo fis } \new Voice { \voiceOne r16 cis'8 cis16~ cis2. } \oneVoice >> |
+    << { \voiceTwo fis } \new Voice { \voiceOne r16-\tag midi \mf cis'8 cis16~ cis2. } >> \oneVoice |
   }
 
+  \barNumberCheck #13
+  <<
+    {
+      \voiceOne
+      r16 d g d~ d d8 d16~ d8. d16~ d8. d16 |
+      r16 cis fis cis~ cis cis8 cis16~ cis8. cis16~ cis8. cis16 |
+    }
+    \new Voice {
+      \voiceTwo
+      g1-\tag midi \mf |
+      fis |
+    }
+  >> \oneVoice
+  b2 b |
+  a a |
+  <<
+    {
+      \voiceOne
+      r16 d g d~ d4~ d8. d16~ d8 g,16 fis |
+      r16 b e b e4 r2 |
+      r4 fis8 cis~ cis2~ |
+      cis1 |
+    }
+    \new Voice {
+      \voiceTwo
+      g2-\tag midi \mf~ g8. r16 r4 |
+      e2.. d16 e |
+      fis1-\tag midi \>~ |
+      fis-\tag midi \p |
+    }
+  >> \oneVoice
+}
+
+pianoDynamics = {
+  s1\mp |
+  s1*11 |
+  s1\mf |
+  s1*5 |
+  s1\> |
+  s1\p |
+}
+
+pianoPedal = {
+  s1\sustainOn
 }
 
 myChords= \chordmode {
@@ -92,6 +156,10 @@ myChords= \chordmode {
           Play -- ground school -- bell rings, a -- gain
           Rain -- clouds come to play, a -- gain
 
+          Has no -- one told you she's not breath -- ing?
+          Hel -- lo, I'm your mind, giv -- ing you some -- one to talk to
+          Hel -- lo
+
         }
       >>
       \new Staff = "cello" <<
@@ -105,16 +173,23 @@ myChords= \chordmode {
           \set Staff.midiInstrument = "acoustic grand"
           \upperStaff
         }
+        \new Dynamics \pianoDynamics
         \new Staff {
           \set Staff.midiInstrument = "acoustic grand"
-          \lowerStaff
+          \removeWithTag midi \lowerStaff
         }
+        \new Dynamics \pianoPedal
       >>
     >>
     \layout {
       \context {
         \Staff \RemoveEmptyStaves
         \override VerticalAxisGroup #'remove-first = ##t
+      }
+      \context {
+        \PianoStaff
+        \accepts Dynamics
+        % \override VerticalAlignment #'forced-distance = #7
       }
     }
   }
@@ -138,14 +213,32 @@ myChords= \chordmode {
       \new PianoStaff = "piano" <<
         \new Staff {
           \set Staff.midiInstrument = "acoustic grand"
-          \upperStaff
+          <<
+            \pianoDynamics
+            \upperStaff
+            \pianoPedal
+          >>
         }
         \new Staff {
           \set Staff.midiInstrument = "acoustic grand"
-          \lowerStaff
+          <<
+            \pianoDynamics
+            \lowerStaff
+            \pianoPedal
+          >>
         }
       >>
     >>
-    \midi { }
+    \midi {
+      \context {
+        \type "Performer_group"
+        \name Dynamics
+        \consists "Piano_pedal_performer"
+      }
+      \context {
+        \PianoStaff
+        \accepts Dynamics
+      }
+    }
   }
 }
