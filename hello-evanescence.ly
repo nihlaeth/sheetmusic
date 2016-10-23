@@ -32,6 +32,14 @@ voiceStaff= \relative c' {
   d cis~ cis2\) r8 \breathe b16\( cis~ |
   cis1\) |
 
+  \barNumberCheck #21
+  R1*4
+  b2\mp\( cis\) |
+  \breathe d\( cis |
+  a2.\) r8 \breathe e16\( cis'~ |
+  cis2.\) r4 |
+
+
 
 }
 
@@ -40,18 +48,18 @@ cello= \relative c, {
 }
 
 upperA= \relative c' {
-  r16 fis, d' fis, d'8 cis cis a a cis |
+  r16 fis,( d' fis, d'8 cis cis a a cis) |
 }
 upperB= \relative c' {
-  r16 e, a e cis' e, a e b'8. e,16 a4 |
+  r16 e,( a e cis' e, a e b'8.) e,16( a4) |
 }
 upperC= \relative c' {
-  r8 fis, cis'16 fis, a fis d'8 cis cis16 b a cis |
+  r8 fis,( cis'16 fis, a fis d'8 cis cis16 b a cis) |
 }
 
 upperStaff= \relative c' {
   \tempo 4=72 \time 4/4 \key b \minor
-  r16 fis, d' fis, d'8 cis16 fis, cis'8 a a cis |
+  r16 fis,( d' fis, d'8 cis16 fis, cis'8 a a cis) |
   \upperA
   \upperB
   \upperC
@@ -73,6 +81,18 @@ upperStaff= \relative c' {
   g, b cis d |
   cis2 b4 fis |
   < fis ais cis>2 fis''' |
+  
+  \barNumberCheck #21
+  r16 fis,,,( d' fis, d'8 cis16 fis, cis'8 a a cis) |
+  \upperA
+  \upperB
+  \upperC
+
+  \upperA
+  \upperA
+  \upperB
+  \upperC
+
 
 }
 
@@ -123,6 +143,18 @@ lowerStaff= \relative c {
       fis-\tag midi \p |
     }
   >> \oneVoice
+  
+  \barNumberCheck #21
+  b1|
+  b |
+  a |
+  << { \voiceTwo fis } \new Voice { \voiceOne r16-\tag midi \mf cis'8 cis16~ cis2. } >> \oneVoice |
+
+  b1 |
+  b |
+  a |
+  << { \voiceTwo fis } \new Voice { \voiceOne r16-\tag midi \mf cis'8 cis16~ cis2. } >> \oneVoice |
+
 }
 
 pianoDynamics = {
@@ -132,6 +164,9 @@ pianoDynamics = {
   s1*5 |
   s1\> |
   s1\p |
+
+  \barNumberCheck #21
+  s1\mp |
 }
 
 pianoPedal = {
@@ -159,6 +194,8 @@ myChords= \chordmode {
           Has no -- one told you she's not breath -- ing?
           Hel -- lo, I'm your mind, giv -- ing you some -- one to talk to
           Hel -- lo
+
+          If I smile and don't be -- lieve
 
         }
       >>
