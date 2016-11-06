@@ -57,11 +57,25 @@ voiceStaff= \relative c' {
   fis)\) \breathe e4\( d( cis4.)\) |
 
   \barNumberCheck #41
+  R1*8 |
+
+  \barNumberCheck #49
 
 }
 
 cello= \relative c, {
   \tempo 4=72 \time 4/4 \key b \minor \clef bass
+  R1*40 |
+  \barNumberCheck #41
+  fis'1\p\< |
+  g4.\mf\> fis8 fis4 d |
+  cis1\mp |
+  b4 a a'4.\mf\> e8\mp |
+  fis1 |
+  b4\f\< fis cis' d |
+  e2\ff d |
+  cis\> a |
+  b,\mp
 }
 
 upperA= \relative c' {
@@ -125,6 +139,17 @@ upperStaff= \relative c' {
   < fis ais cis>1 |
  
   \barNumberCheck #41
+  r16 fis( d' fis, d'8 cis16 fis, cis'8 a a cis) |
+  \upperA
+  \upperB
+  \upperC
+
+  \upperA
+  \upperA
+  \upperB
+  \upperC
+
+  \barNumberCheck #49
 
 }
 
@@ -229,6 +254,18 @@ lowerStaff= \relative c {
   >> \oneVoice
  
   \barNumberCheck #41
+  \repeat unfold 2 {
+    b1 |
+    b |
+    a |
+    <<
+      { \voiceTwo fis }
+      \new Voice { \voiceOne r16-\tag midi \mp-\tag midi \sustainOn cis'8 cis16~ cis2. }
+    >> \oneVoice |
+  }
+
+  \barNumberCheck #49
+
 }
 
 pianoDynamics = {
@@ -249,6 +286,10 @@ pianoDynamics = {
   s1\> |
   s1\p |
   \barNumberCheck #41
+  s1\mp |
+  s1*7 |
+  \barNumberCheck #49
+  s1\mf |
 }
 
 pianoPedal = {
