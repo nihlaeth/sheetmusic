@@ -1,4 +1,5 @@
 \include "articulate.ly"
+\include "color-pitch.ly"
 \include "predefined-guitar-fretboards.ly"
 \version "2.19.49"
 
@@ -11,6 +12,7 @@
 
 
 voiceStaff= \relative c' {
+  \override NoteHead #'color = #color-notehead
   \tempo 4=72 \time 4/4 \key b \minor \clef "treble"
   \repeat unfold 4 r1
 
