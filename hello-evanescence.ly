@@ -101,17 +101,14 @@ upperStaff= \relative c' {
 
 lowerStaff= \relative c {
   \tempo 4=72 \time 4/4 \key b \minor \clef bass
-  b1|
-  b |
-  a |
-  << { \voiceTwo fis } \new Voice { \voiceOne r16-\tag midi \mf cis'8 cis16~ cis2. } >> \oneVoice |
-
-  %5
-  \repeat unfold 2 {
+  \repeat unfold 3 {
     b1 |
     b |
     a |
-    << { \voiceTwo fis } \new Voice { \voiceOne r16-\tag midi \mf cis'8 cis16~ cis2. } >> \oneVoice |
+    <<
+      { \voiceTwo fis }
+      \new Voice { \voiceOne r16-\tag midi \mp-\tag midi \sustainOn cis'8 cis16~ cis2. }
+    >> \oneVoice |
   }
 
   \barNumberCheck #13
@@ -123,7 +120,7 @@ lowerStaff= \relative c {
     }
     \new Voice {
       \voiceTwo
-      g1-\tag midi \mf |
+      g1-\tag midi \mf-\tag midi \sustainOn  |
       fis |
     }
   >> \oneVoice
@@ -139,7 +136,7 @@ lowerStaff= \relative c {
     }
     \new Voice {
       \voiceTwo
-      g2-\tag midi \mf~ g8. r16 r4 |
+      g2-\tag midi \mf-\tag midi \sustainOn ~ g8. r16 r4 |
       e2.. d16 e |
       fis1-\tag midi \>~ |
       fis-\tag midi \p |
@@ -147,15 +144,15 @@ lowerStaff= \relative c {
   >> \oneVoice
   
   \barNumberCheck #21
-  b1|
-  b |
-  a |
-  << { \voiceTwo fis } \new Voice { \voiceOne r16-\tag midi \mf cis'8 cis16~ cis2. } >> \oneVoice |
-
-  b1 |
-  b |
-  a |
-  << { \voiceTwo fis } \new Voice { \voiceOne r16-\tag midi \mf cis'8 cis16~ cis2. } >> \oneVoice |
+  \repeat unfold 2 {
+    b1 |
+    b |
+    a |
+    <<
+      { \voiceTwo fis }
+      \new Voice { \voiceOne r16-\tag midi \mf-\tag midi \sustainOn  cis'8 cis16~ cis2. }
+    >> \oneVoice |
+  }
 
 }
 
@@ -210,7 +207,7 @@ myChords= \chordmode {
       \new PianoStaff = "piano" <<
         \new Staff {
           \set Staff.midiInstrument = "acoustic grand"
-          \upperStaff
+          \removeWithTag midi \upperStaff
         }
         \new Dynamics \pianoDynamics
         \new Staff {
@@ -252,18 +249,18 @@ myChords= \chordmode {
       \new PianoStaff = "piano" <<
         \new Staff {
           \set Staff.midiInstrument = "acoustic grand"
-          <<
-            \pianoDynamics
+          \new Voice <<
+            \new Dynamics \pianoDynamics
             \upperStaff
-            \pianoPedal
+            \new Dynamics \pianoPedal
           >>
         }
         \new Staff {
           \set Staff.midiInstrument = "acoustic grand"
-          <<
-            \pianoDynamics
+          \new Voice <<
+            \new Dynamics \pianoDynamics
             \lowerStaff
-            \pianoPedal
+            \new Dynamics \pianoPedal
           >>
         }
       >>
@@ -272,10 +269,11 @@ myChords= \chordmode {
       \context {
         \type "Performer_group"
         \name Dynamics
+        \consists "Dynamic_performer"
         \consists "Piano_pedal_performer"
       }
       \context {
-        \PianoStaff
+        \Voice
         \accepts Dynamics
       }
     }
