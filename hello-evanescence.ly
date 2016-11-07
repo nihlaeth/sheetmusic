@@ -60,6 +60,20 @@ voiceStaff= \relative c' {
   R1*8 |
 
   \barNumberCheck #49
+  \breathe b4.\( cis8~ cis g'4\) \breathe g8~\( |
+  g fis4 ais8~ ais b4 cis8~ |
+  cis d~ d2\) r8 \breathe cis16\( e~( |
+  e4 d8)\) \breathe d\(( cis) cis( b) b~ |
+  b4.\) \breathe cis8~\( cis d4 g,8~ |
+  g b4\) \breathe cis8~\( cis d( cis) cis~( |
+  \tempo "rit." cis1 |
+  cis4. b8~ b ais4. |
+  \barNumberCheck #57
+  \tempo "a tempo" b1)\) |
+  R1*3 |
+  r1\fermata \bar "|."
+
+
 
 }
 
@@ -75,7 +89,9 @@ cello= \relative c, {
   b4\f\< fis cis' d |
   e2\ff d |
   cis\> a |
-  b,\mp
+  b,\mp r2 |
+  R1*11 |
+  r1\fermata \bar "|."
 }
 
 upperA= \relative c' {
@@ -150,7 +166,21 @@ upperStaff= \relative c' {
   \upperC
 
   \barNumberCheck #49
-
+  b4 b cis d |
+  cis ais b cis |
+  d16 fis, b fis b cis d fis, cis' fis, b fis fis' b, fis b |
+  d16 fis, b fis b cis d fis, cis' a fis a fis'8 fis,16 a |
+  b4 b cis d |
+  g, b cis d |
+  \tempo "rit." cis2 b4 fis |
+  < fis ais cis>1 |
+ 
+  \barNumberCheck #57
+  \tempo "a tempo" r16 fis( d' fis, d'8 cis16 fis, cis'8 a a cis) |
+  r16 fis,( d' fis, d'8 cis16 fis, cis' fis, a fis a fis cis' fis,) |
+  r16 fis( d' fis, d'8 cis16 fis, cis' fis, a fis a fis cis' fis,) |
+  r16 fis( d' fis, d'8 cis16 fis, cis'8 a a cis) |
+  < fis, b >1\fermata \bar "|."
 }
 
 
@@ -265,7 +295,43 @@ lowerStaff= \relative c {
   }
 
   \barNumberCheck #49
-
+  <<
+    {
+      \voiceOne
+      r16 d g d~ d d8 d16~ d8. d16~ d8. d16 |
+      r16 cis fis cis~ cis cis8 cis16~ cis8. cis16~ cis8. cis16 |
+    }
+    \new Voice {
+      \voiceTwo
+      g1-\tag midi \mf-\tag midi \sustainOn  |
+      fis |
+    }
+  >> \oneVoice
+  b2 b |
+  a a |
+  <<
+    {
+      \voiceOne
+      r16 d g d~ d4~ d8. d16~ d8 g,16 fis |
+      r16 b e b e4 r2 |
+      \tempo "rit." r4 fis8 cis~ cis2~ |
+      cis1 |
+    }
+    \new Voice {
+      \voiceTwo
+      g2-\tag midi \mf-\tag midi \sustainOn ~ g8. r16 r4 |
+      e2.. d16 e |
+      \tempo "rit." fis1-\tag midi \>~ |
+      fis-\tag midi \p |
+    }
+  >> \oneVoice
+ 
+  \barNumberCheck #57
+  \tempo "a tempo" b1|
+  b |
+  b |
+  b |
+  b\fermata \bar "|."
 }
 
 pianoDynamics = {
@@ -290,6 +356,12 @@ pianoDynamics = {
   s1*7 |
   \barNumberCheck #49
   s1\mf |
+  s1*5 |
+  s1\> |
+  s1\p |
+
+  \barNumberCheck #57
+  s1\mp
 }
 
 pianoPedal = {
@@ -323,6 +395,10 @@ myChords= \chordmode {
           Don't try to fix me, I'm not bro -- ken
           Hel -- lo, I'm the lie, liv -- ing for you so you can hide
           Don't cry
+
+          Sud -- den -- ly I know I'm not sleep -- ing
+          Hel -- lo, I'm still here
+          All that's left of yes -- ter -- day
 
         }
       >>
