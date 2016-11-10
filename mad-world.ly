@@ -1,4 +1,5 @@
 \include "articulate.ly"
+\include "predefined-guitar-fretboards.ly"
 \version "2.18.2"
 
 \header {
@@ -23,7 +24,7 @@ mainTwo= \relative c {
 
 
 voiceStaff= \relative c' {
-  \tempo 4=84 \time 4/4 \key c \minor \clef "treble_8"
+  \tempo 4=84 \time 4/4 \key es \major \clef "treble_8"
   \repeat unfold 4 { r1 | }
   \repeat unfold 2 {
     \repeat unfold 4 { \mainOne }
@@ -41,11 +42,16 @@ voiceStaff= \relative c' {
     }
   }
 
+  r4. c8 as'4 as8 as~ |
+  as f4. r2 |
+  r2 as4. f8~ |
+  f1 \bar "|."
+
 
 }
 
 cello= \relative c, {
-  \tempo 4=84 \time 4/4 \key c \minor \clef bass
+  \tempo 4=84 \time 4/4 \key es \major \clef bass
   \repeat unfold 32 { r1 | }
 
   \repeat unfold 3 {
@@ -70,11 +76,16 @@ cello= \relative c, {
   d1 |
   c2.. f,8 |
   bes1 |
+
+  f' |
+  d |
+  c2 f, |
+  bes1 \bar "|."
 }
 
 upperStaff= \relative c'' {
-  \tempo 4=84 \time 4/4 \key c \minor
-  as8 c g as f g es d |
+  \tempo 4=84 \time 4/4 \key es \major
+  as8\sustainOn c g as f g es d |
   r2.. as'8~ |
   as c g as f g as bes~ |
   bes1 |
@@ -82,7 +93,7 @@ upperStaff= \relative c'' {
     \repeat unfold 16 { r1 | }
 
     % Refrain
-    < f as>4 as c as |
+    < f as>4\sustainOff\sustainOn as c as |
     < bes d > < bes d > r8 f < bes d > f |
     \repeat unfold 2 {
       f4 < as c>8 f r f < as c > f |
@@ -95,6 +106,11 @@ upperStaff= \relative c'' {
     as < as c> g < g as> f < f g> < es as > < d f bes>~ |
     < d f bes>1 |
   }
+
+  as'8 < as c> g < g as > f < f g> es < d f>~ |
+  < d f >2. r8 as'~ |
+  as < as c> g < g as> f < f g> < es as> < d f bes>~ |
+  < d f bes>1 \bar "|."
 
 
 }
@@ -115,9 +131,10 @@ loweresg= \relative c {
   \repeat unfold 2 { es4 < g bes> } |
 }
 
-lowerStaff= \relative c' {
-  \tempo 4=84 \time 4/4 \key c \minor \clef bass
-  \repeat unfold 2 { \lowerfas \lowerbesd }
+lowerStaff= \relative c {
+  \tempo 4=84 \time 4/4 \key es \major \clef bass
+  f4\sustainOn < as c> f < as c> |
+  \lowerbesd \lowerfas \lowerbesd
   \repeat unfold 2 {
     \repeat unfold 3 {
       \lowerfas
@@ -137,13 +154,34 @@ lowerStaff= \relative c' {
     \repeat unfold 2 { \lowerfas \lowerbesd }
   }
 
+  \lowerfas
+  \lowerbesd
+  \lowerfas
+  < bes, bes'>1 \bar "|."
+
 }
 
+myChords= \chordmode {
+  f:m bes f:m bes 
+  \repeat unfold 2 {
+    f:m as es bes
+    f:m as es bes
+    f:m as es bes
+    f:m as es bes
+
+    f:m bes f:m bes
+    f:m bes f:m bes
+    f:m bes f:m bes
+  }
+  f:m bes f:m bes
+}
 
 \book {
   \bookOutputSuffix "sheet"
   \score {
     <<
+      \new ChordNames { \myChords }
+      \new FretBoards { \myChords }
       \new Staff = "voice" <<
         \set Staff.instrumentName = \markup { "Voice" }
         \set Staff.shortInstrumentName = \markup { "V." }
@@ -188,7 +226,7 @@ lowerStaff= \relative c' {
           When peo -- ple run in cir -- cles
           It's a ve -- ry, ve -- ry mad world, mad world
 
-          Enlarging your world
+          Ha -- lar -- gi -- an world
           Mad world 
 
         }
